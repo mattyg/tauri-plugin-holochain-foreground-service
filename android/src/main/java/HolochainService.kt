@@ -16,14 +16,12 @@ class HolochainService : Service() {
     private val isAboveOrEqualAndroid10 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Log.d("HolochainService", "started")
         startForeground()
 
         return START_REDELIVER_INTENT
     }
 
     override fun onDestroy() {
-        Log.d("HolochainService", "destroyed")
         super.onDestroy()
     }
 
@@ -32,8 +30,6 @@ class HolochainService : Service() {
     }
 
     private fun startForeground() {
-        Log.d("HolochainService", "startForeground")
-
         try {
             // Create the notification to display while the service is running
             val notification = NotificationCompat.Builder(this, "HolochainServiceChannel")
